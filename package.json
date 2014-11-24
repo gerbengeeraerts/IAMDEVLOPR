@@ -14,7 +14,6 @@
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^1.6.5",
-    "browserify": "^6.1.0",
     "gulp": "^3.8.9",
     "gulp-buffer": "0.0.2",
     "gulp-compass": "^2.0.1",
