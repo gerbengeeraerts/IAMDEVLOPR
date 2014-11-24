@@ -1,10 +1,11 @@
 <?php
 require_once WWW_ROOT. DS . 'dao'. DS . 'DAO.php';
 
-class ItemDAO extends DAO {
+class MainDAO extends DAO {
 
+    // Example function
     public function selectAll() {
-      $sql = "SELECT * FROM `kaka`";
+      $sql = "SELECT * FROM `table`";
       $stmt = $this->pdo->prepare($sql);
       $stmt->execute();
       return $stmt->fetchAll(PDO::FETCH_ASSOC);
