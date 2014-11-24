@@ -7,7 +7,6 @@ var gulp = require('gulp'),
 		source = require('vinyl-source-stream'),
 		sourcemaps = require('gulp-sourcemaps'),
 		stylish = require('jshint-stylish'),
-		browserSync = require('browser-sync'),
 		pngquant = require('imagemin-pngquant'),
 		uglify = require('gulp-uglify');
 		//package = require('./package.json');
@@ -26,7 +25,6 @@ gulp.task('styles', function(){
 			this.emit('end');
 		})
 		.pipe(gulp.dest('./css'))
-		.pipe(browserSync.reload({stream:true}));
 });
 
 gulp.task('lint', function(){
@@ -55,7 +53,6 @@ gulp.task('scripts', ['lint'], function(){
     	sourceRoot: '../'
     }))
 		.pipe(gulp.dest('./js'))
-		.pipe(browserSync.reload({stream:true, once: true}));
 });
 
 gulp.task('images', function () {
@@ -64,20 +61,8 @@ gulp.task('images', function () {
 		.pipe(gulp.dest('img/'));
 });
 
-gulp.task('browser-sync', function() {
-		browserSync.init(null, {
-				server: {
-						baseDir: "."
-				}
-		});
-});
-gulp.task('bs-reload', function () {
-		browserSync.reload();
-});
-
-gulp.task('watch', ['scripts', 'styles', 'browser-sync', 'images'], function(){
+gulp.task('watch', ['scripts', 'styles', 'images'], function(){
 	gulp.watch(['js/src/**/*.js'], ['scripts']);
 	gulp.watch(['css/src/**/*.scss'], ['styles']);
-	gulp.watch(['./index.php'], ['bs-reload']);
 	gulp.watch(['img/src/**/*.png'], ['images']);
 });
