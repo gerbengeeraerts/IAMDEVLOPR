@@ -78,6 +78,6 @@ gulp.task('bs-reload', function () {
 gulp.task('watch', ['scripts', 'styles', 'browser-sync', 'images'], function(){
 	gulp.watch(['js/src/**/*.js'], ['scripts']);
 	gulp.watch(['css/src/**/*.scss'], ['styles']);
-	gulp.watch(['./*.html'], ['bs-reload']);
+	gulp.watch(['./index.php'], ['bs-reload']);
 	gulp.watch(['img/src/**/*.png'], ['images']);
 });
