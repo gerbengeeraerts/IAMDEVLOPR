@@ -6,6 +6,6 @@
 
 ## Get started
 *  - gulp watch your folder in terminal
-*  - Add your database connectin in dao/dao.php
+*  - Add your database connection in dao/dao.php
 *  - you should be ready to go.
 
