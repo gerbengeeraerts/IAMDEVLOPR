@@ -1,0 +1,9 @@
+(function(){
+
+  function init(){
+    
+  }
+
+  init();
+
+})();
