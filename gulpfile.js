@@ -1,4 +1,3 @@
-// 1. Requires
 var gulp = require('gulp'),
 		browserify = require('browserify'),
 		buffer = require('gulp-buffer'),
@@ -8,13 +7,12 @@ var gulp = require('gulp'),
 		source = require('vinyl-source-stream'),
 		sourcemaps = require('gulp-sourcemaps'),
 		stylish = require('jshint-stylish'),
-		browserSync = require('browser-sync'),
+		pngquant = require('imagemin-pngquant'),
 		uglify = require('gulp-uglify');
 		//package = require('./package.json');
 
-// 2. Stylesheet tasks
 gulp.task('styles', function(){
-	return gulp.src('./css/src/*.scss')
+	return gulp.src('./css/src/**/*.scss')
 		.pipe(compass({
 			config_file: './config.rb',
 			css: './css',
@@ -27,17 +25,14 @@ gulp.task('styles', function(){
 			this.emit('end');
 		})
 		.pipe(gulp.dest('./css'))
-		.pipe(browserSync.reload({stream:true}));
 });
 
-// 3. Hinting / linting
 gulp.task('lint', function(){
 	return gulp.src('js/src/**/*.js')
 		.pipe(jshint())
 		.pipe(jshint.reporter(stylish));
 });
 
-// 4. Script tasks
 gulp.task('scripts', ['lint'], function(){
 	var bundler = browserify({
 		entries: ['./js/src/script.js'],
@@ -58,24 +53,16 @@ gulp.task('scripts', ['lint'], function(){
     	sourceRoot: '../'
     }))
 		.pipe(gulp.dest('./js'))
-		.pipe(browserSync.reload({stream:true, once: true}));
 });
 
-gulp.task('browser-sync', function() {
-		browserSync.init(null, {
-				server: {
-						baseDir: "."
-				}
-		});
-});
-gulp.task('bs-reload', function () {
-		browserSync.reload();
+gulp.task('images', function () {
+	return gulp.src('img/src/**/*.png')
+		.pipe(pngquant({ quality: '65-80', speed: 4 })())
+		.pipe(gulp.dest('img/'));
 });
 
-// 5. Replacement voor default task.
-//		Verander watch naar default en dan kan je gewoon `gulp` in terminal runnen ipv gulp watch
-gulp.task('watch', ['scripts', 'styles', 'browser-sync'], function(){
+gulp.task('watch', ['scripts', 'styles', 'images'], function(){
 	gulp.watch(['js/src/**/*.js'], ['scripts']);
 	gulp.watch(['css/src/**/*.scss'], ['styles']);
-	//gulp.watch(['./*.php'], ['bs-reload']);
+	gulp.watch(['img/src/**/*.png'], ['images']);
 });

@@ -6,13 +6,6 @@ class DAO {
 	private static $dbPass = "";
 	private static $sharedPDO;
 	
-	 //webhostinsg
-	  /*private static $dbHost = "localhost";
-		private static $dbName = "";
-		private static $dbUser = "";
-		private static $dbPass = "";
-		private static $sharedPDO;*/
-		
 	protected $pdo;
 
 	function __construct() {
