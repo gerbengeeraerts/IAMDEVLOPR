@@ -1,0 +1,27 @@
+{
+  "name": "IAMDEVLOPR",
+  "version": "1.1.0",
+  "description": "Boilerplate with gulpfile and MVC - handy for DevineHowest projects",
+  "homepage": "https://github.com/thibmaek/IAMDEVLOPR",
+  "authors": [
+    "Thibault Maekelbergh <thibault.maekelbergh@student.howest.be>"
+  ],
+  "keywords": [
+    "gulp",
+    "compass",
+    "handlebars",
+    "phpmvc",
+    "browserify"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "./js/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "~2.0.0"
+  }
+}
