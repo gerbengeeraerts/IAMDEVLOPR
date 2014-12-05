@@ -1,6 +1,6 @@
 {
   "name": "IAMDEVLOPR",
-  "version": "1.1.0",
+  "version": "1.0.1",
   "description": "Boilerplate with gulpfile and MVC - handy for DevineHowest projects",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,11 @@
     "type": "git",
     "url": "https://github.com/thibmaek/IAMDEVLOPR"
   },
-  "author": "Thibault Maekelbergh",
+  "author": "Gerben Geeraerts",
+  "contributors": [{
+    "name": "Thibault Maekelbergh",
+    "email": "hello@thibmaekelbergh.be"
+    }],
   "license": "MIT",
   "devDependencies": {
     "gulp": "^3.8.9",
