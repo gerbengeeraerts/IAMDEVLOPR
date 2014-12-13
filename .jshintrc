@@ -16,6 +16,8 @@
 	"globals": {
 		"console": true,
 		"module": true,
-		"require": true
+		"require": true,
+		"$": true,
+		"fallback": true
 	}
 }
