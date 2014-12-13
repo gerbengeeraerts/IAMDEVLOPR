@@ -5,7 +5,6 @@ var gulp = require('gulp'),
 		gutil = require('gulp-util'),
 		jshint = require('gulp-jshint'),
 		source = require('vinyl-source-stream'),
-		sourcemaps = require('gulp-sourcemaps'),
 		stylish = require('jshint-stylish'),
 		pngquant = require('imagemin-pngquant'),
 		uglify = require('gulp-uglify');
@@ -36,7 +35,7 @@ gulp.task('lint', function(){
 gulp.task('scripts', ['lint'], function(){
 	var bundler = browserify({
 		entries: ['./js/src/script.js'],
-		debug: true
+		debug: false
 	});
 
 	return bundler.bundle()
@@ -47,11 +46,7 @@ gulp.task('scripts', ['lint'], function(){
 		})
 		.pipe(source('script.dist.js'))
 		.pipe(buffer())
-		.pipe(sourcemaps.init({loadMaps: true}))
     .pipe(uglify())
-    .pipe(sourcemaps.write('./', {
-    	sourceRoot: '../'
-    }))
 		.pipe(gulp.dest('./js'))
 });
 
