@@ -6,9 +6,19 @@ var gulp = require('gulp'),
 		jshint = require('gulp-jshint'),
 		source = require('vinyl-source-stream'),
 		stylish = require('jshint-stylish'),
+		imagemin = require('gulp-imagemin'),
 		pngquant = require('imagemin-pngquant'),
-		uglify = require('gulp-uglify');
-		//package = require('./package.json');
+		header = require('gulp-header'),
+		uglify = require('gulp-uglify'),
+		pkg = require('./package.json');
+
+var disclaimer = ['/**',
+	' * <%= pkg.name %> - <%= pkg.description %>',
+	' * version v<%= pkg.version %>',
+	' * license <%= pkg.license %>',
+	' * © <%= pkg.author %> & Thibault Maekelbergh',
+	' */',
+''].join('\n')
 
 gulp.task('styles', function(){
 	return gulp.src('./css/src/**/*.scss')
@@ -47,17 +57,21 @@ gulp.task('scripts', ['lint'], function(){
 		.pipe(source('script.dist.js'))
 		.pipe(buffer())
     .pipe(uglify())
+		.pipe(header(disclaimer, { pkg: pkg }))
 		.pipe(gulp.dest('./js'))
 });
 
 gulp.task('images', function () {
-	return gulp.src('img/src/**/*.png')
-		.pipe(pngquant({ quality: '65-80', speed: 4 })())
+	return gulp.src('img/src/**/*')
+		.pipe(imagemin({
+			progressive: true,
+			use: [pngquant()]
+		}))
 		.pipe(gulp.dest('img/'));
 });
 
 gulp.task('watch', ['scripts', 'styles', 'images'], function(){
 	gulp.watch(['js/src/**/*.js'], ['scripts']);
 	gulp.watch(['css/src/**/*.scss'], ['styles']);
-	gulp.watch(['img/src/**/*.png'], ['images']);
+	gulp.watch(['img/src/**/*'], ['images']);
 });
