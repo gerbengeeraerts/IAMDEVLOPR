@@ -5,7 +5,7 @@ class DAO {
 	private static $dbUser = "";
 	private static $dbPass = "";
 	private static $sharedPDO;
-	
+
 	protected $pdo;
 
 	function __construct() {

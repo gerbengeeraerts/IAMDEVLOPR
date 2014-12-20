@@ -1,5 +1,5 @@
 node_modules
 .sass-cache
-js/vendor
-js/script.dist.js
-css/screen.css
+deploy/js/vendor
+deploy/js/script.dist.js
+deploy/css/screen.css
