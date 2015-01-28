@@ -1,0 +1,13 @@
+@import 'compass/css3/box-sizing';
+
+@mixin border-box-default() {
+  html {
+    @include box-sizing(border-box);
+	}
+
+  *,
+	*:after,
+	*:before {
+    @include box-sizing(border-box);
+	}
+}
