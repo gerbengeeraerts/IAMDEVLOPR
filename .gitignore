@@ -1,5 +1,10 @@
 node_modules
 .sass-cache
 deploy/js/vendor
+<<<<<<< HEAD
 js/script.dist.js
 css/screen.css
+=======
+deploy/js/script.dist.js
+deploy/css/screen.css
+>>>>>>> FETCH_HEAD

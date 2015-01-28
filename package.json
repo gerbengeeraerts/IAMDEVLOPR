@@ -1,6 +1,6 @@
 {
   "name": "IAMDEVLOPR",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Boilerplate with gulpfile and MVC - handy for DevineHowest projects",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "contributors": [
     {
       "name": "Thibault Maekelbergh",
-      "email": "hello@thibmaekelbergh.be"
+      "email": "thibault.maekelbergh@icloud.com"
     }
   ],
   "license": "MIT",

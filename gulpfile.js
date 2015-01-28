@@ -21,11 +21,11 @@ var disclaimer = ['/**',
 ''].join('\n')
 
 gulp.task('styles', function(){
-	return gulp.src('./css/src/**/*.scss')
+	return gulp.src('./css/**/*.scss')
 		.pipe(compass({
 			config_file: './config.rb',
-			css: './css',
-			sass: 'css/src',
+			css: './deploy/css',
+			sass: './css',
 			environment: 'production'
 		}))
 		.on('error', function(err){
@@ -33,18 +33,18 @@ gulp.task('styles', function(){
 			gutil.beep();
 			this.emit('end');
 		})
-		.pipe(gulp.dest('./css'))
+		.pipe(gulp.dest('./deploy/css'))
 });
 
 gulp.task('lint', function(){
-	return gulp.src('js/src/**/*.js')
+	return gulp.src('./js/**/*.js')
 		.pipe(jshint())
 		.pipe(jshint.reporter(stylish));
 });
 
 gulp.task('scripts', ['lint'], function(){
 	var bundler = browserify({
-		entries: ['./js/src/script.js'],
+		entries: ['./js/script.js'],
 		debug: false
 	});
 
@@ -58,20 +58,20 @@ gulp.task('scripts', ['lint'], function(){
 		.pipe(buffer())
     .pipe(uglify())
 		.pipe(header(disclaimer, { pkg: pkg }))
-		.pipe(gulp.dest('./js'))
+		.pipe(gulp.dest('./deploy/js'))
 });
 
 gulp.task('images', function () {
-	return gulp.src('img/src/**/*')
+	return gulp.src('./img/**/*')
 		.pipe(imagemin({
 			progressive: true,
 			use: [pngquant()]
 		}))
-		.pipe(gulp.dest('img/'));
+		.pipe(gulp.dest('./deploy/img'));
 });
 
 gulp.task('watch', ['scripts', 'styles', 'images'], function(){
-	gulp.watch(['js/src/**/*.js'], ['scripts']);
-	gulp.watch(['css/src/**/*.scss'], ['styles']);
-	gulp.watch(['img/src/**/*'], ['images']);
+	gulp.watch(['js/**/*.js'], ['scripts']);
+	gulp.watch(['css/**/*.scss'], ['styles']);
+	gulp.watch(['img/**/*'], ['images']);
 });
