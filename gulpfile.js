@@ -3,14 +3,15 @@ var gulp = require('gulp'),
 		buffer = require('gulp-buffer'),
 		compass = require('gulp-compass'),
 		gutil = require('gulp-util'),
+		header = require('gulp-header'),
+		imagemin = require('gulp-imagemin'),
 		jshint = require('gulp-jshint'),
+		pkg = require('./package.json'),
+		pngquant = require('imagemin-pngquant'),
 		source = require('vinyl-source-stream'),
 		stylish = require('jshint-stylish'),
-		imagemin = require('gulp-imagemin'),
-		pngquant = require('imagemin-pngquant'),
-		header = require('gulp-header'),
-		uglify = require('gulp-uglify'),
-		pkg = require('./package.json');
+		tag = require('gulp-tag-version'),
+		uglify = require('gulp-uglify');
 
 var disclaimer = ['/**',
 	' * <%= pkg.name %> - <%= pkg.description %>',
@@ -18,12 +19,11 @@ var disclaimer = ['/**',
 	' * license <%= pkg.license %>',
 	' * © <%= pkg.author %> & Thibault Maekelbergh',
 	' */',
-''].join('\n')
+''].join('\n');
 
 gulp.task('styles', function(){
 	return gulp.src('./css/**/*.scss')
 		.pipe(compass({
-			config_file: './config.rb',
 			css: './deploy/css',
 			sass: './css',
 			environment: 'production'
@@ -33,7 +33,7 @@ gulp.task('styles', function(){
 			gutil.beep();
 			this.emit('end');
 		})
-		.pipe(gulp.dest('./deploy/css'))
+		.pipe(gulp.dest('./deploy/css'));
 });
 
 gulp.task('lint', function(){
@@ -58,7 +58,7 @@ gulp.task('scripts', ['lint'], function(){
 		.pipe(buffer())
     .pipe(uglify())
 		.pipe(header(disclaimer, { pkg: pkg }))
-		.pipe(gulp.dest('./deploy/js'))
+		.pipe(gulp.dest('./deploy/js'));
 });
 
 gulp.task('images', function () {
@@ -68,6 +68,11 @@ gulp.task('images', function () {
 			use: [pngquant()]
 		}))
 		.pipe(gulp.dest('./deploy/img'));
+});
+
+gulp.task('tag', function () {
+	return gulp.src(['./package.json'])
+		.pipe(tag());
 });
 
 gulp.task('watch', ['scripts', 'styles', 'images'], function(){
