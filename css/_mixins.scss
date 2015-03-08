@@ -11,3 +11,16 @@
     @include box-sizing(border-box);
 	}
 }
+
+// e.g @include mq(large){width:100%}
+@mixin mq($point) {
+  @if $point == large {
+    @media (max-width: 1600px) { @content; }
+  }
+  @else if $point == medium {
+    @media (max-width: 1250px) { @content; }
+  }
+  @else if $point == small {
+    @media (max-width: 600px)  { @content; }
+  }
+}
