@@ -33,10 +33,9 @@
   public function insert($data) {
     $errors = $this->getValidationErrors($data);
     if(empty($errors)){
-      $sql = "INSERT INTO `table` (`id`, `rowvalue`)
-                VALUES (:id, :rowvalue)";
+      $sql = "INSERT INTO `table` (`rowvalue`)
+                VALUES (:rowvalue)";
       $stmt = $this->pdo->prepare($sql);
-      $stmt->bindValue(':id', '');
       $stmt->bindValue(':rowvalue', $data['value']);
       if($stmt->execute()) {
         $insertedId = $this->pdo->lastInsertId();
