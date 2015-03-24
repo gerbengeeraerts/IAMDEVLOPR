@@ -1,7 +1,6 @@
 # Boilerplate with PHP MVC & Gulp features
 > IAMDEVLOPR is an extenstion on the [Thane](https://github.com/thibmaek/Thane) boilerplate from [thibmaek](https://github.com/thibmaek). If you're a student "Devine" at Howest Kortrijk, Belgium, this boilerplate is perfect for starting new assignments. If not, it's still very useful and easy to start new web projects.
 
-*For news and updates on the IAMDEVLOPR project, check out [Frrront](http://frrront.postach.io/) and follow [@Frrront](https://twitter.com/frrront) for direct updates.*
 
 ## Quickstart
 * Make sure you have [Gulp](http://gulpjs.com) installed on your machine and run the `Gulp.command` file. This will auto-install the needed packages which are described in `package.json` and automatically will start the Gulp watch task.
