@@ -22,8 +22,8 @@
     "tests"
   ],
   "dependencies": {
-    "handlebars": "~2.0.0",
     "jquery": "~2.1.1",
-    "fallback": "~1.1.6"
+    "fallback": "~1.1.6",
+    "bifrost-color": "~2.0.1"
   }
 }
