@@ -1,6 +1,6 @@
 {
   "name": "IAMDEVLOPR",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Boilerplate with gulpfile and MVC - handy for DevineHowest projects",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "browserify": "^10.1.1",
     "gulp": "^3.8.11",
     "gulp-buffer": "0.0.2",
     "gulp-compass": "^2.0.1",
