@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Brol.exe</title>
+        <title>IAMDEVLOPR | RAPID MODERN PHP FRAMEWORK</title>
         <meta charset="utf-8">
         <meta name="description" content="">
         <link rel="Shortcut Icon" type="image/ico" href="favicon.png">

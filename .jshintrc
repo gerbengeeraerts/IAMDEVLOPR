@@ -18,6 +18,7 @@
 		"module": true,
 		"require": true,
 		"$": true,
-		"fallback": true
+		"fallback": true,
+		"Window": true
 	}
 }
