@@ -1,4 +1,4 @@
-[![devDependency Status](https://david-dm.org/gerbengeeraerts/IAMDEVLOPR/dev-status.svg)](https://david-dm.org/gerbengeeraerts/IAMDEVLOPR#info=devDependencies)
+[![GitHub tag](https://img.shields.io/github/tag/thibmaek/thane.svg)]() [![devDependency Status](https://david-dm.org/gerbengeeraerts/IAMDEVLOPR/dev-status.svg)](https://david-dm.org/gerbengeeraerts/IAMDEVLOPR#info=devDependencies)
 
 # Boilerplate with PHP MVC & Gulp features
 
