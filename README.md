@@ -8,10 +8,8 @@
 
 ## Quickstart
 
-- Make sure you have [Gulp](http://gulpjs.com) installed on your machine and run the `Gulp.command` file. This will auto-install the needed packages which are described in `package.json` and automatically will start the Gulp watch task.
-- Install [Bower](http://bower.io) and run `bower install` to install client side dependencies. (Located in `lib/`)
-- Add your database connection in dao/dao.php
-- When finished on your project upload the `deploy` folder to the server. This contains all the minified and generated files you need for the web.
+- This is the barebones version of this repo's master branch. It just includes the base MVC 'framework' from #devinehowest's BAD (Backend) course. You can just start working in the folders right away with your PHP server (MAMP, Vagrant, Otto, etc) running this repo as http root.
+- Additionally Gulp is available if you like to write SCSS instead of plain CSS. You could also just write plain CSS in a css folder in the project root.
 
 
 ## Got errors or problems
